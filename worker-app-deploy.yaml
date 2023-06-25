@@ -18,6 +18,8 @@ spec:
         name: worker-app-pod
         app: demo-voting-app
     spec:
+      nodeSelector: # Add nodeSelector section
+        kubernetes.io/hostname: kubenode02 # Specify the node name
       containers:
         - name: worker-app
-          image: kodekloud/examplevotingapp_worker:v1
+          image: 192.168.1.138:5000/test_worker:v1

@@ -18,9 +18,11 @@ spec:
         name: postgres-pod
         app: demo-voting-app
     spec:
+      nodeSelector: # Add nodeSelector section
+        kubernetes.io/hostname: kubenode01 # Specify the node name
       containers:
         - name: postgres
-          image: postgres:9.4
+          image: 192.168.1.138:5000/test_postgres:v1
           ports:
             - containerPort: 5432
           env:
@@ -28,5 +30,5 @@ spec:
               value: "postgres"
             - name: POSTGRES_PASSWORD
               value: "postgres"
-            - name: POSTGRES_HOST_AUTH_METHOD 
+            - name: POSTGRES_HOST_AUTH_METHOD
               value: trust
