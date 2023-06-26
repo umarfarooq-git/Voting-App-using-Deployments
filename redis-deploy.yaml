@@ -22,6 +22,6 @@ spec:
         kubernetes.io/hostname: kubenode01 # Specify the node name
       containers:
         - name: redis
-          image: 192.168.1.138:5000/test_redis:v1
+          image: 192.168.1.138:5000/redis:latest
           ports:
             - containerPort: 6379
